@@ -13,7 +13,7 @@
 <body>
     <div id="people">
         <form method="post" v-on:submit="addUser">
-            
+            <p class="text-danger">{{ message }}</p>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -36,6 +36,8 @@
                         </td>
                         <td>
                             <button class="tiny radius" @submit="addUser">Add</button>
+                            <button class="tiny radius" @submit="updateUser">Update</button>
+                            <button class="tiny radius" @submit="deleteUser">Delete</button>
                         </td>
                     </tr>
                     <tr v-for="user in tableFilter">

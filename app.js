@@ -29,7 +29,8 @@ var app = new Vue({
             id: '',
             name: '',
             role: 'Choose'
-        }
+        }, 
+        message: 'You loaded this page on ' + new Date().toLocaleString()
     },
     computed: {
        tableFilter: function() {
@@ -42,6 +43,7 @@ var app = new Vue({
         addUser: function(event) {
             event.preventDefault();
             this.$root.tableData.push(this.user);
+            this.message = this.user.id + ' has been mapped to ' + this.user.role + ' role.';
             // reset new user
             this.user = {
                 id: '',
@@ -49,5 +51,16 @@ var app = new Vue({
                 role: 'Choose'
             }
         },
+        deleteUser: function(event) {
+            event.preventDefault();
+            this.$root.tableData.push(this.user);
+            this.message = this.user.id + ' has been deleted.';
+            // reset new user
+            this.user = {
+                id: '',
+                name: '',
+                role: 'Choose'
+            }
+        },        
     }
 });
